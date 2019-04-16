@@ -15,7 +15,7 @@ void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str)
 	pid_t tpid, pid;
 	char *token_text;
 
-	(void)argv;
+	(void)av;
 	tpid = fork();
 	if (tpid == 0)
 	{
@@ -28,7 +28,7 @@ void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str)
 			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, token_text, _strlen(token_text));
 			write(STDERR_FILENO, ": not found\n", 13);
-			free(buffer);
+			free(buf);
 			free_list(path_str);
 		}
 		exit(0);
@@ -39,5 +39,5 @@ void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str)
 			tpid = wait(&status);
 		} while (tpid != pid);
 	}
-	free(buffer);
+	free(buf);
 }
