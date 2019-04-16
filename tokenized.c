@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * parse_text - Function to parse a string by their tokens
+ * tokenized_text - Function to parse a string by their tokens
  * @str: String received to be parsed
  * @_args: String parsed by strtok function
  *
