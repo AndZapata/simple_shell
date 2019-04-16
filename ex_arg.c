@@ -11,39 +11,33 @@
  */
 void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str)
 {
-	int execute, status = 0;
-	pid_t tpid;
+	int status = 0;
+	pid_t tpid, pid;
 	char *token_text;
-	/**
-	 * Forkin a child
-	 */
-	token_text = _path(_args, path_str);
-	tpid = fork();
 
-	if (tpid == -1)
+	(void)argv;
+	tpid = fork();
+	if (tpid == 0)
 	{
-		perror("Fork failed");
-		free_list(path_str);
-		free(buf);
-		_exit(1);
-	}
-	else if (tpid == 0)
-	{
-		execute = execve(token_text, _args, env);
-		if (execute < 0)
+		token_text = _path(_args, path_str);
+		if (execve(token_text, _args, env) == -1)
 		{
 			write(STDERR_FILENO, av[0], _strlen(av[0]));
 			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, "1", 1);
 			write(STDERR_FILENO, ": ", 2);
-			write(STDERR_FILENO, _args[0], _strlen(_args[0]));
+			write(STDERR_FILENO, token_text, _strlen(token_text));
 			write(STDERR_FILENO, ": not found\n", 13);
-			_exit(127);
+			free(buffer);
+			free_list(path_str);
 		}
+		exit(0);
 	}
 	else
 	{
-		wait(&status);
-		free(token_text);
+		do {
+			tpid = wait(&status);
+		} while (tpid != pid);
 	}
+	free(buffer);
 }
