@@ -136,9 +136,9 @@ $(╯°□°）╯  /bin/ls
 ___
 #### AUTHORS
 
-Paula Gutierrez | First Bogota Cohort | [![N|Solid](https://www.allininteractive.com/wp-content/uploads/2015/04/twitter.png)](https://twitter.com/AndZapata1) |
+Paula Gutierrez | First Bogota Cohort | (https://twitter.com/AndZapata1) |
 
-Samuel Florez | First Bogota Cohort | [![N|Solid](https://www.allininteractive.com/wp-content/uploads/2015/04/twitter.png)](https://twitter.com/samscode) |
+Samuel Florez | First Bogota Cohort | (https://twitter.com/samscode) |
 
 
 ________
