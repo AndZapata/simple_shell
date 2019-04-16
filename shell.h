@@ -42,7 +42,7 @@ char *_path(char **_args, paths_t *path_str);
 void parse_text(char *str, char **_args);
 void _sigint(int do_not);
 void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str);
-void fun_call(char *buf, char **av, char **_args, char **env, paths_t *path_str);
+void fun_call(char *buf, char **av, char **, char **, paths_t *);
 void _prompt(char **av, char *env[]);
 void exit_func(char *buf, char **_args, paths_t *path_str);
 
