@@ -36,8 +36,8 @@ void ex_arg(char *buf, char **av, char **_args, char **env, paths_t *path_str)
 	else
 	{
 		do {
-			tpid = wait(&status);
-		} while (tpid != pid);
+			pid = wait(&status);
+		} while (pid != tpid);
 	}
 	free(buf);
 }
