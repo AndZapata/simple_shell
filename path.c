@@ -115,7 +115,7 @@ paths_t *keeped_path(char **env)
 				counter = 0;
 		}
 	}
-	dup = dup_env[find_p];
+	dup = _strdup(dup_env[find_p]);
 	strc = malloc(sizeof(char *) * 1024);
 	_args_tokenized(dup, strc);
 	head = NULL;
@@ -123,7 +123,7 @@ paths_t *keeped_path(char **env)
 	for (i = 0; strc[i]; i++)
 		_struct(&head, strc[i]);
 	i = 0;
-
+	free(dup);
 	free(strc);
 	return (head);
 }
